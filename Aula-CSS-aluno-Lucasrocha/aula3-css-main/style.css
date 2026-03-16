@@ -1,0 +1,229 @@
+/* Importação de fonte do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Reset básico para remover margens e paddings padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilização do corpo da página: centralização total e fundo escuro */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #5C4033; /* Fundo marrom escuro para o tema de padaria */
+}
+
+/* Container principal que agrupa os cartões usando Flexbox */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+/* Configuração base do cartão: tamanho inicial e transição suave */
+.container .card {
+    position: relative;
+    width: 350px;
+    height: 190px;
+  box-shadow: inset 5px 5px 5px rgba(140, 0, 255, 0.4),
+                inset -5px -5px 15px rgba(105, 37, 214, 0.828),
+                5px 5px 15px rgba(65, 1, 108, 0.792);
+    border-radius: 15px;
+    margin: 30px;
+}
+
+/* Efeito de hover: o cartão aumenta de altura para revelar o conteúdo */
+.container .card .box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #15171f; /* Fundo interno um pouco mais claro que o body */
+    border: 1px solid #000000;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+.container .card:hover .box {
+    transform: translatey(-50px);
+    background: linear-gradient(45deg, #9625f9, #a600ff); 
+    box-shadow: 0 15px 35px rgba(179, 156, 199, 0.781);
+}
+.container .card .box .content h2 {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none; 
+}
+.container .card .box .content h3 {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.container .card .box .content p {
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #a0a0a0;
+    line-height: 1.6;
+    transition: 0.5s;
+}
+.container .card:hover .box .content p {
+    color: #eee;
+}
+.container .card .box .content a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    background: #fff; /* Botão branco para contraste */
+    margin-top: 20px;
+    border-radius: 30px;
+    color: #070113;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.container .card:hover .box .content a {
+    background: #56028a; /* Muda para ciano no hover */
+    color: #d8aafc;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+}
+/* Linhas decorativas animadas em volta do cartão */
+.container .card .lines {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Pseudo-elemento para criar o efeito de gradiente giratório */
+.container .card .lines::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 120px;
+    background: linear-gradient(transparent, var(--clr), var(--clr), var(--clr), transparent); /* Usa a cor definida no HTML */
+    animation: animate 4s linear infinite;
+    animation-play-state: paused;
+}
+
+/* Inicia a animação quando o mouse passa sobre o cartão */
+.container .card:hover .lines::before {
+    animation-play-state: running;
+}
+
+/* Keyframes para a animação de rotação */
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Segundo pseudo-elemento para criar o efeito de borda interna */
+.container .card .lines::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: #4A2C2A; /* Cor interna do cartão para o tema de padaria */
+}
+
+/* Caixa da imagem: posicionamento e transição de tamanho/posição */
+.container .card .imgBx {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translateX(-50%);
+    background: #000;
+    transition: 0.5s;
+    z-index: 10;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Altera a posição e o tamanho da imagem no hover */
+.container .card:hover .imgBx {
+    top: 25px;
+    width: 250px;
+    height: 250px;
+}
+
+/* Estilização da imagem dentro da caixa */
+.container .card .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+/* Conteúdo textual do cartão: centralização e visibilidade inicial */
+.container .card .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+/* Detalhes internos: animação de subida e opacidade no hover */
+.container .card .content .details {
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s;
+    transform: translateY(145px);
+}
+
+.container .card:hover .content .details {
+    transform: translateY(0px);
+}
+
+/* Estilização do título h2 com a cor variável (--clr) */
+.container .card .content .details h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--clr); /* Usa a cor definida no HTML */
+    line-height: 1.2em;
+}
+
+/* Estilização do parágrafo de descrição */
+.container .card .content .details p {
+    color: #fff;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Botão "Ver Mais" com estilização personalizada */
+.container .card .content .details a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: var(--clr); /* Usa a cor definida no HTML */
+    color: #333; /* Cor do texto do botão para contraste */
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
