@@ -1,0 +1,166 @@
+/* ========================================
+   RESET E VARIÁVEIS GLOBAIS
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores */
+    --bg-dark: #0F172A;
+    --bg-card: #1E293B;
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --accent-orange: #EA580C;
+    --accent-amber: #F59E0B;
+    --border-color: #334155;
+    
+    /* Tipografia */
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    
+    /* Transições */
+    --transition: all 0.3s ease;
+}
+
+/* ========================================
+   ESTILOS GLOBAIS
+   ======================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   TIPOGRAFIA
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    background-color: rgba(234, 88, 12, 0.1);
+    color: #FFA500;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================
+   BOTÕES
+   ======================================== */
+
+button {
+    font-family: var(--font-body);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-amber) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(234, 88, 12, 0.5);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid rgba(234, 88, 12, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(234, 88, 12, 0.1);
+    border-color: var(--accent-orange);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-amber) 100%);
+    color: white;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+}
