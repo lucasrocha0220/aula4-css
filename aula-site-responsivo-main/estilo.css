@@ -1,0 +1,523 @@
+/* ================================================================
+       1. VARIÁVEIS GLOBAIS (Custom Properties)
+       ----------------------------------------------------------------
+       Definem as cores, tamanhos e sombras do site inteiro.
+       Mude um valor aqui → muda em TODAS as páginas e componentes.
+
+       Como usar numa propriedade CSS:
+         color: var(--verde);
+         border-radius: var(--radius);
+    ================================================================ */
+:root {
+  /* Paleta de cores */
+  --verde: #2d6a4f; /* cor principal — cabeçalho, botões, títulos */
+  --menta: #74c69d; /* cor de destaque — bordas, hover, acentos    */
+  --creme: #f8f3ec; /* fundo padrão das páginas                    */
+  --areia: #e9ddd0; /* fundo de seções alternadas                  */
+  --texto: #1b2e25; /* cor principal do texto                      */
+  --cinza: #6b7c74; /* texto secundário, descrições                */
+  --borda: #c9b99a; /* bordas e separadores                        */
+
+  /* Espaçamentos e efeitos */
+  --radius: 10px; /* arredondamento padrão de cards e caixas     */
+  --sombra: 0 4px 20px rgba(0, 0, 0, 0.08); /* sombra suave reutilizável        */
+}
+
+/* ================================================================
+       2. RESET MÍNIMO
+       ----------------------------------------------------------------
+       Remove margens/paddings padrão do navegador e garante que
+       largura e altura incluam bordas (box-sizing: border-box).
+       NÃO mexa neste bloco.
+    ================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+} /* rolagem suave ao clicar em âncoras */
+
+/* ================================================================
+       3. ESTILOS BASE — aplicados ao corpo inteiro
+       ----------------------------------------------------------------
+       Definem fonte, cor de fundo e espaçamento entre linhas.
+       Tudo que está aqui é herdado por todos os elementos filhos.
+    ================================================================ */
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  line-height: 1.7; /* espaço entre linhas — facilita a leitura */
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: var(--verde);
+  text-decoration: none;
+}
+
+/* Títulos usam a fonte serif (mais elegante) */
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  line-height: 1.2;
+}
+
+/* ================================================================
+       4. COMPONENTES REUTILIZÁVEIS
+       ----------------------------------------------------------------
+       Cada componente abaixo pode ser usado em QUALQUER página.
+       Basta copiar a estrutura HTML indicada no comentário.
+    ================================================================ */
+
+/* ── 4a. CONTAINER ─────────────────────────────────────────────
+       Centraliza o conteúdo e limita a largura máxima.
+       HTML: <div class="container"> ... </div>
+    ────────────────────────────────────────────────────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto; /* centraliza horizontalmente */
+}
+
+/* ── 4b. TÍTULO DE SEÇÃO ───────────────────────────────────────
+       HTML: <h2 class="section-title">Meu Título</h2>
+       clamp(mín, ideal, máx) → tamanho fluido conforme a tela
+    ────────────────────────────────────────────────────────────── */
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--verde);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ── 4c. BOTÃO ─────────────────────────────────────────────────
+       HTML padrão:  <a href="..." class="btn">Texto</a>
+       HTML claro:   <a href="..." class="btn btn--claro">Texto</a>
+       HTML submit:  <button class="btn-enviar">Enviar</button>
+    ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  background: var(--verde);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 50px; /* pílula arredondada */
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.btn--claro {
+  background: #fff;
+  color: var(--verde);
+} /* variação fundo branco */
+
+/* ── 4d. CARDS EM GRADE ────────────────────────────────────────
+       FLEXBOX: os cards se organizam em linha e quebram sozinhos.
+       HTML:
+         <div class="cards">
+           <article class="card">
+             <div class="icone">🧠</div>
+             <h3>Título</h3>
+             <p>Descrição.</p>
+           </article>
+         </div>
+    ────────────────────────────────────────────────────────────── */
+.cards {
+  display: flex;
+  flex-wrap: wrap; /* quebra linha se não couber */
+  gap: 1.5rem;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  flex: 1 1 220px; /* flex-grow | flex-shrink | flex-basis */
+  max-width: 260px;
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+.card .icone {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+.card h3 {
+  color: var(--verde);
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--cinza);
+}
+
+/* ── 4e. LISTA DE DICAS ────────────────────────────────────────
+       Card com borda lateral colorida.
+       HTML:
+         <div class="dicas-lista">
+           <article class="dica">
+             <strong>💡 Título</strong>
+             <p>Texto da dica.</p>
+           </article>
+         </div>
+    ────────────────────────────────────────────────────────────── */
+.dicas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.dica {
+  background: #fff;
+  border-left: 4px solid var(--menta); /* borda lateral de destaque */
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  flex: 1 1 280px;
+  max-width: 360px;
+  box-shadow: var(--sombra);
+}
+.dica strong {
+  color: var(--verde);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.dica p {
+  font-size: 0.88rem;
+  color: var(--cinza);
+}
+
+/* ── 4f. DOIS ELEMENTOS LADO A LADO ────────────────────────────
+       FLEXBOX: texto e imagem em linha; empilha em mobile.
+       HTML:
+         <div class="sobre-inner">
+           <div class="sobre-texto"> ... </div>
+           <div class="sobre-img">🌿</div>
+         </div>
+    ────────────────────────────────────────────────────────────── */
+.sobre-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap; /* empilha quando a tela for pequena */
+}
+.sobre-texto {
+  flex: 1 1 280px;
+}
+.sobre-texto p {
+  color: var(--cinza);
+  margin-bottom: 1rem;
+}
+.sobre-img {
+  flex: 1 1 260px;
+  background: linear-gradient(135deg, var(--menta), var(--verde));
+  border-radius: var(--radius);
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+}
+
+/* ================================================================
+       5. SEÇÃO GENÉRICA
+       ----------------------------------------------------------------
+       Espaçamento padrão para todas as seções.
+       Seções com fundo diferente recebem a classe extra .bg-areia
+    ================================================================ */
+section {
+  padding: 4rem 2rem;
+}
+.bg-areia {
+  background: var(--areia);
+}
+
+/* ================================================================
+       6. HEADER — cabeçalho fixo no topo
+       ----------------------------------------------------------------
+       FLEXBOX: logo à esquerda + navegação à direita.
+       Copie este bloco HTML para TODAS as páginas:
+
+         <header>
+           <div class="header-inner">
+             <span class="logo">🌿 IE</span>
+             <nav>
+               <a href="index.html" class="ativo">Início</a>
+               <a href="pilares.html">Pilares</a>
+               ...
+             </nav>
+           </div>
+         </header>
+
+       Na página atual, adicione class="ativo" no link correspondente.
+    ================================================================ */
+header {
+  background: var(--verde);
+  color: #fff;
+  padding: 1rem 2rem;
+  position: sticky; /* fica fixo enquanto o usuário rola a página */
+  top: 0;
+  z-index: 100; /* fica na frente de tudo */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo e nav nas extremidades */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+nav {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+nav a {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+nav a.ativo {
+  opacity: 1;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+/* ================================================================
+       7. HERO — banner de destaque
+       ----------------------------------------------------------------
+       Versão grande para index.html: class="hero"
+       Versão compacta para páginas internas: class="hero hero--pequeno"
+    ================================================================ */
+.hero {
+  background: linear-gradient(135deg, var(--verde) 0%, #52b788 100%);
+  color: #fff;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+}
+.hero--pequeno {
+  padding: 3rem 2rem;
+} /* use em pilares.html, sobre.html etc. */
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+}
+
+/* ================================================================
+       8. FORMULÁRIO DE CONTATO
+       ----------------------------------------------------------------
+       FLEXBOX: label acima do input (flex-direction: column)
+                campos lado a lado dentro de .form-row
+    ================================================================ */
+#contato {
+  background: var(--verde);
+  color: #fff;
+}
+#contato .section-title {
+  color: #fff;
+}
+
+.form-wrap {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form-row {
+  display: flex; /* campos ficam lado a lado */
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.form-group {
+  display: flex;
+  flex-direction: column; /* label em cima → input embaixo */
+  gap: 0.4rem;
+  flex: 1 1 200px;
+  margin-bottom: 1.2rem;
+}
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.7rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--menta);
+}
+.form-group select option {
+  color: var(--texto);
+  background: #fff;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.btn-enviar {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--menta);
+  color: var(--verde);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.btn-enviar:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+       9. FOOTER — rodapé
+       ----------------------------------------------------------------
+       Copie este bloco HTML para TODAS as páginas:
+
+         <footer>
+           <p>© 2025 <strong>Nome do Site</strong> · Subtítulo</p>
+         </footer>
+    ================================================================ */
+footer {
+  background: var(--texto);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.82rem;
+}
+footer strong {
+  color: var(--menta);
+}
+
+/* ================================================================
+       10.MEDIA QUERIES — desing responsivo
+        ----------------------------------------------------------------
+    ================================================================ */
+/*Smartwacht (< 240px)*/
+@media (max-width: 240px) {
+  nav {
+    display: none;
+  } /*nav oculta:tela pequena demais */
+  .hero {
+    padding: 2rem 1;
+  }
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .hero p {
+    font-size: 0.78rem;
+  }
+  .btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.78rem;
+  }
+  .section {
+    padding: 1.25rem 0.75rem;
+  }
+  .card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .sobre-img {
+    display: none;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}
+/*celular (< 600px)*/
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    gap: 1rem;
+  }
+  .card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  /* 1 card por linha */
+  .sobre-inner {
+    flex-direction: column;
+  } /*empilha verticalmente*/
+  .sobre-img { width: 100%; }
+.dica {flex-basis: 100%; max-width: 100%;}
+  .form-row {
+    flex-direction: column;}/* campos empilhados */
+}
+/*tablet (< 601px- 1024px)*/
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card {
+    flex-basis: calc(50% - 1.5rem);  max-width:none; 
+  } /* 2 cards por linha */ 
+  .dica{flex-basis: calc(50%- 1.5rem);max-width:none;
+  }
+}
+/*TV  grande (> 1800px)*/
+@media (min-width: 1800px) {
+    body {font-size: 1.2rem;}
+    .hero h1 {font-size: 4rem;}
+    .hero p {font-size: 1.3rem; max-width: 700px;}
+    .container {max-width: 1400px;}
+    .card {padding: 2.5rem 2rem;} 
+}

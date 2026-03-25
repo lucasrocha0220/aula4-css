@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inteligência Emocional</title>
+  <!-- 
+   FONTE EXTERNA — Google Fonts
+  Para trocar a fonte do site inteiro, altere apenas esta linha.
+  Fontes atuais:
+    • Títulos  → Playfair Display (serif elegante)
+    • Textos   → DM Sans (sem-serifa, fácil de ler) 
+ -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+ <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">🌿 IE</span>
+      <nav>
+        <a href="index.html" class="ativo">Início</a>
+        <a href="pilares.html">Pilares</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="dicas.html">Dicas</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Inteligência Emocional</h1>
+      <p>Reconheça, compreenda e gerencie suas emoções para viver com mais equilíbrio e conexão.</p>
+      <a href="#pilares" class="btn">Descubra os Pilares</a>
+    </div>
+  </section>
+
+  <main>
+
+    <section id="pilares" class="bg-areia">
+      <div class="container">
+        <h2 class="section-title">Os 5 esportes </h2>
+        <div class="cards">
+          <article class="card">
+            <div class="icone">🧠</div>
+            <h3>Autoconhecimento</h3>
+            <p>Reconhecer as próprias emoções no momento em que ocorrem.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🌊</div>
+            <h3>Autorregulação</h3>
+            <p>Gerenciar impulsos e estados emocionais de forma saudável.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🔥</div>
+            <h3>Motivação</h3>
+            <p>Direcionar emoções para alcançar metas com resiliência.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🤝</div>
+            <h3>Empatia</h3>
+            <p>Perceber e compreender as emoções das outras pessoas.</p>
+          </article>
+          <article class="card">
+            <div class="icone">💬</div>
+            <h3>Habilidades Sociais</h3>
+            <p>Construir relacionamentos e influenciar positivamente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="sobre-inner">
+          <div class="sobre-texto">
+            <h2 class="section-title" style="text-align:left;">O que é IE?</h2>
+            <p>Inteligência Emocional (IE) é a capacidade de identificar, usar, compreender e gerenciar emoções de maneira eficaz e positiva.</p>
+            <p>Desenvolvida por Peter Salovey e John Mayer em 1990 e popularizada por Daniel Goleman, a IE é considerada tão importante quanto o QI para o sucesso pessoal e profissional.</p>
+            <a href="contato.html" class="btn btn--claro">Fale Conosco</a>
+          </div>
+          <div class="sobre-img" aria-hidden="true">🌿</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dicas" class="bg-areia">
+      <div class="container">
+        <h2 class="section-title">Dicas Práticas</h2>
+        <div class="dicas-lista">
+          <article class="dica">
+            <strong>📓 Diário emocional</strong>
+            <p>Escreva como se sentiu ao longo do dia para identificar padrões.</p>
+          </article>
+          <article class="dica">
+            <strong>🧘 Pausa consciente</strong>
+            <p>Antes de reagir, respire fundo e pergunte: o que essa emoção quer me dizer?</p>
+          </article>
+          <article class="dica">
+            <strong>👂 Escuta ativa</strong>
+            <p>Ouça sem interromper e tente se colocar no lugar do outro.</p>
+          </article>
+          <article class="dica">
+            <strong>🎯 Nomeie as emoções</strong>
+            <p>Dizer "estou ansioso" em vez de "estou mal" ajuda a gerenciar melhor.</p>
+          </article>
+          <article class="dica">
+            <strong>🔄 Reformule pensamentos</strong>
+            <p>Substitua "não consigo" por "o que posso aprender com isso?".</p>
+          </article>
+          <article class="dica">
+            <strong>🌱 Cuide do corpo</strong>
+            <p>Sono, exercício e alimentação impactam diretamente suas emoções.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="form-wrap">
+          <form action="#" method="post" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="assunto">Assunto</label>
+              <select id="assunto" name="assunto">
+                <option value="">Selecione um tema</option>
+                <option>Autoconhecimento</option>
+                <option>Autorregulação</option>
+                <option>Empatia</option>
+                <option>Relacionamentos</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar Mensagem ✉️</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <strong>Inteligência Emocional</strong> · Feito com 💚 para a aula de Web Design</p>
+    </div>
+  </footer>
+
+</body>
+</html>

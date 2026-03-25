@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esporte</title>
+  <!-- 
+   FONTE EXTERNA — Google Fonts
+  Para trocar a fonte do site inteiro, altere apenas esta linha.
+  Fontes atuais:
+    • Títulos  → Playfair Display (serif elegante)
+    • Textos   → DM Sans (sem-serifa, fácil de ler) 
+ -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+ <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">🥇E</span>
+      <nav>
+        <a href="projeto.html" class="ativo">Início</a>
+        <a href="esporte - Copia.html">Esportes</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="dicas.html">Dicas</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1> Esporte</h1>
+      <p>Reconheça, Venha conhecer os esporte.</p>
+      <a href="#pilares" class="btn">Descubra os esportes</a>
+    </div>
+  </section>
+
+  <main>
+
+    <section id="pilares" class="bg-areia">
+      <div class="container">
+        <h2 class="section-title">Os 5 esportes </h2>
+        <div class="cards">
+          <article class="card">
+            <div class="icone">⚽</div>
+            <h3>Futebol</h3>
+            <p>É o esporte mais assistido e praticado em quase todos os continentes.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🏊‍♀️</div>
+            <h3>Natação</h3>
+            <p> Praticada tanto por desempenho quanto por saúde e reabilitação.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🏀</div>
+            <h3>Basquete</h3>
+            <p>É um dos esportes que mais cresce globalmente devido à influência da NBA e à facilidade de ser praticado em ambientes urbanos.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🏐</div>
+            <h3>Volei</h3>
+            <p>Considerado o segundo esporte mais popular, impulsionado pelo sucesso histórico das seleções brasileiras masculina e feminina.</p>
+          </article>
+          <article class="card">
+            <div class="icone">🎾</div>
+            <h3>Tenis</h3>
+            <p>1 bilhão de fãs. É reconhecido pelo seu prestígio global e por ter um público bem distribuído entre os continentes, impulsionado pelos torneios de Grand Slam.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="sobre-inner">
+          <div class="sobre-texto">
+            <h2 class="section-title" style="text-align:left;">O que é Esporte?</h2>
+            <p>Esporte é uma atividade física que envolve competição e recreação, promovendo saúde e bem-estar.</p>
+            <p>Praticado em todo o mundo, o esporte contribui para o desenvolvimento físico, mental e social.</p>
+            <a href="contato.html" class="btn btn--claro">Fale Conosco</a>
+          </div>
+          <div class="sobre-img" aria-hidden="true">🏆</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dicas" class="bg-areia">
+      <div class="container">
+        <h2 class="section-title">Dicas Práticas</h2>
+        <div class="dicas-lista">
+          <article class="dica">
+            <strong>🧠 Saúde e Mente</strong>
+            <p>Pratique esportes que promovam o bem-estar físico e mental.</p>
+          </article>
+          <article class="dica">
+            <strong>👯‍♂️ Socialização</strong>
+            <p>Participe de atividades esportivas em grupo para desenvolver habilidades sociais e construir relacionamentos.</p>
+          </article>
+          <article class="dica">
+            <strong>🎓 Educação</strong>
+            <p> Ensina valores fundamentais como disciplina, respeito às regras, saber ganhar e, principalmente, saber perder.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="form-wrap">
+          <form action="#" method="post" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="assunto">Assunto</label>
+              <select id="assunto" name="assunto">
+                <option value="">Selecione um tema</option>
+                <option>Autoconhecimento</option>
+                <option>Autorregulação</option>
+                <option>Empatia</option>
+                <option>Relacionamentos</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar Mensagem ✉️</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <strong>Inteligência Emocional</strong> · Feito com 💚 para a aula de Web Design</p>
+    </div>
+  </footer>
+
+</body>
+</html>
